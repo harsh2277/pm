@@ -31,52 +31,21 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     // Base styles
-    const baseStyles = "inline-flex items-center justify-center transition-all duration-200 font-semibold cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 active:scale-95";
+    const baseStyles = "inline-flex items-center justify-center transition-all duration-200 font-semibold cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 disabled:pointer-events-none active:scale-95 rounded-[40px]";
     
     // Size styles
     const sizeStyles = {
-      sm: iconOnly ? "p-2 text-xs" : "px-4 py-2 text-xs gap-2",
-      md: iconOnly ? "p-3 text-sm" : "px-6 py-3 text-sm gap-2.5",
-      lg: iconOnly ? "p-4 text-base" : "px-8 py-4 text-base gap-3",
+      sm: iconOnly ? "p-2 text-xs" : variant === "link" ? "text-xs gap-2" : "px-4 py-2 text-xs gap-2",
+      md: iconOnly ? "p-3 text-base" : variant === "link" ? "text-base gap-2.5" : "px-6 py-3 text-base gap-2.5",
+      lg: iconOnly ? "p-4 text-lg" : variant === "link" ? "text-lg gap-3" : "px-8 py-4 text-lg gap-3",
     };
 
-    // Variant styles
-    const variantStyles = {
-      primary: {
-        background: "linear-gradient(180deg, var(--primary-400) 0%, var(--primary-600) 100%)",
-        color: "white",
-        border: "1px solid rgba(255, 255, 255, 0.3)",
-        boxShadow: "0 4px 12px rgba(37, 99, 235, 0.2)",
-      },
-      line: {
-        background: "transparent",
-        color: "var(--primary-600)",
-        border: "1px solid var(--primary-600)",
-      },
-      link: {
-        background: "transparent",
-        color: "var(--primary-600)",
-        border: "none",
-        padding: "0",
-        boxShadow: "none",
-        textDecoration: "underline-offset-4 hover:underline",
-      },
-      ghost: {
-        background: "transparent",
-        color: "var(--neutral-600)",
-        border: "none",
-      },
-    };
-
-    // Hover effect simulation for non-native CSS properties
-    const hoverStyles = variant === "primary" ? "hover:brightness-110 hover:shadow-lg" : "";
-    const ghostHover = variant === "ghost" ? "hover:bg-neutral-100 dark:hover:bg-neutral-800" : "";
-    const lineHover = variant === "line" ? "hover:bg-primary-50 dark:hover:bg-primary-900/10" : "";
-
-    const combinedStyle = {
-      borderRadius: "40px",
-      ...variantStyles[variant],
-      ...style,
+    // Variant classes
+    const variantClasses = {
+      primary: "bg-gradient-to-b from-primary-400 to-primary-600 text-white border border-white/30 shadow-[0_4px_12px_rgba(37,99,235,0.2)] hover:brightness-110 hover:shadow-lg",
+      line: "bg-transparent text-primary-600 border border-primary-600 hover:bg-primary-50 dark:hover:bg-primary-900/10",
+      ghost: "bg-transparent text-neutral-600 hover:bg-neutral-100 dark:hover:bg-neutral-800",
+      link: "bg-transparent text-primary-600 p-0 shadow-none underline-offset-4 hover:underline",
     };
 
     const iconSize = {
@@ -89,8 +58,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         disabled={disabled}
-        className={`${baseStyles} ${sizeStyles[size]} ${hoverStyles} ${ghostHover} ${lineHover} ${className}`}
-        style={combinedStyle}
+        className={`${baseStyles} ${sizeStyles[size]} ${variantClasses[variant]} ${className}`}
+        style={style}
         {...props}
       >
         {LeftIcon && <LeftIcon size={iconSize[size]} strokeWidth={2.5} />}

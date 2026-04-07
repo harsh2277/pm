@@ -103,8 +103,7 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
+:root.dark {
     --background: #000000;
     --foreground: #ffffff;
 
@@ -179,8 +178,9 @@
     --info-700: #7dd3fc;
     --info-800: #bae6fd;
     --info-900: #f0f9ff;
-  }
 }
+
+@custom-variant dark (&:is(.dark *));
 
 @theme {
   --color-primary-50: var(--primary-50);
