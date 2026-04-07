@@ -56,10 +56,10 @@ const TypographyRow = ({ label, size, level }: { label: string; size: string; le
               {w.name} ({w.weight})
             </span>
             <p
-              style={{ 
-                fontSize: `var(--font-size-${level})`, 
+              style={{
+                fontSize: `var(--font-size-${level})`,
                 fontWeight: w.var,
-                color: `var(--neutral-900)` 
+                color: `var(--neutral-900)`
               }}
               className="leading-tight dark:!text-[var(--foreground)]"
             >
@@ -230,9 +230,9 @@ const InputSection = () => {
             </div>
             <div className="flex flex-col gap-3">
               <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Left & Right Icons</span>
-              <Input 
-                placeholder="Search resources..." 
-                rightIcon={X} 
+              <Input
+                placeholder="Search resources..."
+                rightIcon={X}
                 onRightIconClick={() => console.log("Clear content")}
               />
             </div>
@@ -249,17 +249,17 @@ const InputSection = () => {
             </div>
             <div className="flex flex-col gap-3">
               <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Hover State</span>
-              <Input 
-                placeholder="Hovering..." 
-                className="!border-neutral-300 dark:!border-neutral-700" 
+              <Input
+                placeholder="Hovering..."
+                className="!border-neutral-300 dark:!border-neutral-700"
               />
             </div>
             <div className="flex flex-col gap-3">
               <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Focus / Active</span>
-              <Input 
-                placeholder="Focused..." 
+              <Input
+                placeholder="Focused..."
                 autoFocus
-                className="!border-primary-500 ring-4 ring-primary-500/10" 
+                className="!border-primary-500 ring-4 ring-primary-500/10"
               />
             </div>
             <div className="flex flex-col gap-3">
@@ -296,14 +296,14 @@ const InputFieldSection = () => {
         <div className="flex flex-col gap-8">
           <h3 style={{ color: `var(--neutral-900)`, fontWeight: `var(--font-weight-semibold)` }} className="text-xl">Label & Required</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
-            <InputField 
-              label="Full Name" 
-              placeholder="Enter your full name" 
-              required 
+            <InputField
+              label="Full Name"
+              placeholder="Enter your full name"
+              required
             />
-            <InputField 
-              label="Company (Optional)" 
-              placeholder="Your company name" 
+            <InputField
+              label="Company (Optional)"
+              placeholder="Your company name"
             />
           </div>
         </div>
@@ -312,16 +312,16 @@ const InputFieldSection = () => {
         <div className="flex flex-col gap-8">
           <h3 style={{ color: `var(--neutral-900)`, fontWeight: `var(--font-weight-semibold)` }} className="text-xl">Icon Placements</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
-            <InputField 
-              label="Email Address" 
-              placeholder="you@company.com" 
-              leftIcon={Mail} 
+            <InputField
+              label="Email Address"
+              placeholder="you@company.com"
+              leftIcon={Mail}
               required
             />
-            <InputField 
-              label="Password" 
-              placeholder="Create a strong password" 
-              leftIcon={Lock} 
+            <InputField
+              label="Password"
+              placeholder="Create a strong password"
+              leftIcon={Lock}
               rightIcon={Eye}
               type="password"
               required
@@ -333,21 +333,21 @@ const InputFieldSection = () => {
         <div className="flex flex-col gap-8">
           <h3 style={{ color: `var(--neutral-900)`, fontWeight: `var(--font-weight-semibold)` }} className="text-xl">States</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <InputField 
-              label="Hover" 
-              placeholder="Hover over me..." 
+            <InputField
+              label="Hover"
+              placeholder="Hover over me..."
               className="!border-neutral-400 dark:!border-neutral-600"
             />
-            <InputField 
-              label="Focus / Active" 
-              placeholder="Click to focus..." 
+            <InputField
+              label="Focus / Active"
+              placeholder="Click to focus..."
               autoFocus
               className="!border-primary-500 ring-4 ring-primary-500/10"
             />
-            <InputField 
-              label="Disabled Field" 
-              placeholder="Value is locked" 
-              disabled 
+            <InputField
+              label="Disabled Field"
+              placeholder="Value is locked"
+              disabled
               defaultValue="John Doe"
             />
           </div>
@@ -357,16 +357,16 @@ const InputFieldSection = () => {
         <div className="flex flex-col gap-8">
           <h3 style={{ color: `var(--neutral-900)`, fontWeight: `var(--font-weight-semibold)` }} className="text-xl text-error-600">Error Feedback</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
-            <InputField 
-              label="Username" 
-              placeholder="Choose a username" 
+            <InputField
+              label="Username"
+              placeholder="Choose a username"
               error="This username is already taken. Please try another one."
               defaultValue="harsh2277"
               required
             />
-            <InputField 
-              label="Phone Number" 
-              placeholder="+1 (555) 000-0000" 
+            <InputField
+              label="Phone Number"
+              placeholder="+1 (555) 000-0000"
               leftIcon={AlertCircle}
               error="Invalid phone number format"
               required
@@ -440,33 +440,30 @@ const PhoneInputSection = () => {
           International phone number input with country code selection and searchable dropdown.
         </p>
       </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 p-10 bg-neutral-50/50 dark:bg-neutral-900/30 rounded-[32px] border border-neutral-100 dark:border-neutral-800/50">
+      <div className="flex flex-col gap-8">
+        <h3 style={{ color: `var(--neutral-900)`, fontWeight: `var(--font-weight-semibold)` }} className="text-xl">Standard Phone Input</h3>
         <div className="flex flex-col gap-8">
-          <h3 style={{ color: `var(--neutral-900)`, fontWeight: `var(--font-weight-semibold)` }} className="text-xl">Standard Phone Input</h3>
-          <div className="flex flex-col gap-8">
-            <div className="flex flex-col gap-2">
-              <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Default Layer</span>
-              <PhoneInput label="Mobile Number" required />
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Filled / Focused</span>
-              <PhoneInput label="Phone (Fixed Value)" value="98765 43210" />
-            </div>
+          <div className="flex flex-col gap-2">
+            <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Default Layer</span>
+            <PhoneInput label="Mobile Number" required />
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Filled / Focused</span>
+            <PhoneInput label="Phone (Fixed Value)" value="98765 43210" />
           </div>
         </div>
+      </div>
 
+      <div className="flex flex-col gap-8">
+        <h3 style={{ color: `var(--neutral-900)`, fontWeight: `var(--font-weight-semibold)` }} className="text-xl">Interactive States</h3>
         <div className="flex flex-col gap-8">
-          <h3 style={{ color: `var(--neutral-900)`, fontWeight: `var(--font-weight-semibold)` }} className="text-xl">Interactive States</h3>
-          <div className="flex flex-col gap-8">
-            <div className="flex flex-col gap-2">
-              <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Error State (Validation Failed)</span>
-              <PhoneInput label="Recovery Phone" error="Please enter a valid phone number" />
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Disabled State (Read-only)</span>
-              <PhoneInput label="Locked Number" disabled value="77009 00123" />
-            </div>
+          <div className="flex flex-col gap-2">
+            <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Error State (Validation Failed)</span>
+            <PhoneInput label="Recovery Phone" error="Please enter a valid phone number" />
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Disabled State (Read-only)</span>
+            <PhoneInput label="Locked Number" disabled value="77009 00123" />
           </div>
         </div>
       </div>
@@ -484,48 +481,44 @@ const RichTextFieldSection = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-16 p-10 bg-neutral-50/50 dark:bg-neutral-900/30 rounded-[32px] border border-neutral-100 dark:border-neutral-800/50">
-        
-        {/* Standard Usage */}
-        <div className="flex flex-col gap-8">
-          <h3 style={{ color: `var(--neutral-900)`, fontWeight: `var(--font-weight-semibold)` }} className="text-xl">Standard Usage</h3>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="flex flex-col gap-2">
-              <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Default (Empty)</span>
-              <RichTextField label="Description" required />
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Filled (With HTML)</span>
-              <RichTextField 
-                label="Biography" 
-                initialValue="<p>This is a <b>rich</b> text field with some <i>existing</i> content. It supports:</p><ul><li>Lists</li><li>Formatting</li><li>Alignment</li></ul>" 
-              />
-            </div>
+      {/* Standard Usage */}
+      <div className="flex flex-col gap-8">
+        <h3 style={{ color: `var(--neutral-900)`, fontWeight: `var(--font-weight-semibold)` }} className="text-xl">Standard Usage</h3>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="flex flex-col gap-2">
+            <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Default (Empty)</span>
+            <RichTextField label="Description" required />
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Filled (With HTML)</span>
+            <RichTextField
+              label="Biography"
+              initialValue="<p>This is a <b>rich</b> text field with some <i>existing</i> content. It supports:</p><ul><li>Lists</li><li>Formatting</li><li>Alignment</li></ul>"
+            />
           </div>
         </div>
+      </div>
 
-        {/* Interactive States */}
-        <div className="flex flex-col gap-8">
-          <h3 style={{ color: `var(--neutral-900)`, fontWeight: `var(--font-weight-semibold)` }} className="text-xl">Interactive States</h3>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="flex flex-col gap-2">
-              <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Error State</span>
-              <RichTextField 
-                label="Terms & Conditions" 
-                error="Description cannot be empty" 
-              />
-            </div>
-            <div className="flex flex-col gap-2">
-              <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Disabled State</span>
-              <RichTextField 
-                label="Archived Notes" 
-                disabled 
-                initialValue="<p>These notes are archived and cannot be edited.</p>" 
-              />
-            </div>
+      {/* Interactive States */}
+      <div className="flex flex-col gap-8">
+        <h3 style={{ color: `var(--neutral-900)`, fontWeight: `var(--font-weight-semibold)` }} className="text-xl">Interactive States</h3>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="flex flex-col gap-2">
+            <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Error State</span>
+            <RichTextField
+              label="Terms & Conditions"
+              error="Description cannot be empty"
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="text-[10px] text-neutral-400 font-bold uppercase tracking-widest">Disabled State</span>
+            <RichTextField
+              label="Archived Notes"
+              disabled
+              initialValue="<p>These notes are archived and cannot be edited.</p>"
+            />
           </div>
         </div>
-
       </div>
     </section>
   );
@@ -583,7 +576,7 @@ const ColorSection = ({ title, category, description }: { title: string; categor
 
 export default function DesignSystemPage() {
   return (
-    <div 
+    <div
       style={{ backgroundColor: `var(--background)`, color: `var(--foreground)` }}
       className="min-h-screen font-sans selection:bg-primary-100 dark:selection:bg-primary-900/30"
     >

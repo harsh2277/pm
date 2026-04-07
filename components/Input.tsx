@@ -18,11 +18,11 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
     // State styles for the container
     const stateStyles = disabled
-      ? "bg-neutral-50 dark:bg-neutral-900 border-neutral-200 dark:border-neutral-800 opacity-50 cursor-not-allowed"
-      : "bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-600 focus-within:border-primary-500 focus-within:ring-4 focus-within:ring-primary-500/10";
+      ? "bg-neutral-50 border-neutral-200 opacity-50 cursor-not-allowed"
+      : "bg-[var(--background)] border-neutral-200 hover:border-neutral-400 focus-within:border-primary-500 focus-within:ring-4 focus-within:ring-primary-500/10";
 
     // Text entry styles
-    const inputStyles = "w-full bg-transparent border-none outline-none py-3 text-sm font-medium placeholder:text-neutral-400 dark:placeholder:text-neutral-500 text-neutral-900 dark:text-neutral-100 disabled:cursor-not-allowed";
+    const inputStyles = "w-full bg-transparent border-none outline-none py-3 text-sm font-medium placeholder:text-neutral-400 text-neutral-900 disabled:cursor-not-allowed";
 
     // Padding based on icons
     const hasLeftIcon = !!LeftIcon;
@@ -36,7 +36,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       >
         {/* Left Icon Overlay */}
         {LeftIcon && (
-          <div className="absolute left-4 text-neutral-400 dark:text-neutral-500 pointer-events-none">
+          <div className="absolute left-4 text-neutral-400 pointer-events-none">
             <LeftIcon size={20} strokeWidth={2.5} />
           </div>
         )}
@@ -51,7 +51,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {/* Right Icon Overlay */}
         {RightIcon && (
           <div
-            className={`absolute right-4 text-neutral-400 dark:text-neutral-500 ${onRightIconClick ? "cursor-pointer hover:text-primary-500 transition-colors" : "pointer-events-none"}`}
+            className={`absolute right-4 text-neutral-400 ${onRightIconClick ? "cursor-pointer hover:text-primary-500 transition-colors" : "pointer-events-none"}`}
             onClick={onRightIconClick}
           >
             <RightIcon size={20} strokeWidth={2.5} />

@@ -86,7 +86,7 @@ const RichTextField: React.FC<RichTextFieldProps> = ({
       disabled={disabled}
       className={`
         p-2 rounded-lg transition-all duration-200
-        ${disabled ? "opacity-30 cursor-not-allowed" : "hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400"}
+        ${disabled ? "opacity-30 cursor-not-allowed" : "hover:bg-neutral-100 text-neutral-600 hover:text-primary-600"}
       `}
       title={label}
     >
@@ -97,7 +97,7 @@ const RichTextField: React.FC<RichTextFieldProps> = ({
   return (
     <div className={`flex flex-col w-full gap-[12px] ${className}`}>
       {label && (
-        <label className="text-sm font-semibold text-neutral-800 dark:text-neutral-200">
+        <label className="text-sm font-semibold text-neutral-800">
           {label}
           {required && <span className="ml-1 text-error-500">*</span>}
         </label>
@@ -106,26 +106,26 @@ const RichTextField: React.FC<RichTextFieldProps> = ({
       <div
         className={`
           flex flex-col transition-all duration-200 border
-          ${disabled ? "bg-neutral-50 dark:bg-neutral-900 border-neutral-100 dark:border-neutral-800 opacity-50 cursor-not-allowed" :
-            isError ? "bg-white dark:bg-neutral-900 border-error-500 focus-within:ring-4 focus-within:ring-error-500/10" :
-            isFocused ? "bg-white dark:bg-neutral-900 border-primary-500 ring-4 ring-primary-500/10" :
-            "bg-white dark:bg-neutral-900 border-neutral-200 dark:border-neutral-700 hover:border-neutral-400 dark:hover:border-neutral-600"}
+          ${disabled ? "bg-neutral-50 border-neutral-200 opacity-50 cursor-not-allowed" :
+            isError ? "bg-[var(--background)] border-error-500 focus-within:ring-4 focus-within:ring-error-500/10" :
+            isFocused ? "bg-[var(--background)] border-primary-500 ring-4 ring-primary-500/10" :
+            "bg-[var(--background)] border-neutral-200 hover:border-neutral-400"}
         `}
         style={{ borderRadius: "24px" }}
       >
         {/* Toolbar */}
-        <div className="flex flex-wrap items-center gap-1 p-2 border-b border-neutral-100 dark:border-neutral-800">
+        <div className="flex flex-wrap items-center gap-1 p-2 border-b border-neutral-200">
           <ToolbarButton icon={Bold} command="bold" label="Bold" />
           <ToolbarButton icon={Italic} command="italic" label="Italic" />
           <ToolbarButton icon={Underline} command="underline" label="Underline" />
-          <div className="w-px h-6 bg-neutral-100 dark:bg-neutral-800 mx-1" />
+          <div className="w-px h-6 bg-neutral-200 mx-1" />
           <ToolbarButton icon={List} command="insertUnorderedList" label="Bullet List" />
           <ToolbarButton icon={ListOrdered} command="insertOrderedList" label="Numbered List" />
-          <div className="w-px h-6 bg-neutral-100 dark:bg-neutral-800 mx-1" />
+          <div className="w-px h-6 bg-neutral-200 mx-1" />
           <ToolbarButton icon={AlignLeft} command="justifyLeft" label="Align Left" />
           <ToolbarButton icon={AlignCenter} command="justifyCenter" label="Align Center" />
           <ToolbarButton icon={AlignRight} command="justifyRight" label="Align Right" />
-          <div className="w-px h-6 bg-neutral-100 dark:bg-neutral-800 mx-1" />
+          <div className="w-px h-6 bg-neutral-200 mx-1" />
           <ToolbarButton icon={Code} command="formatBlock" value="pre" label="Code Block" />
           <ToolbarButton icon={Eraser} command="removeFormat" label="Clear Formatting" />
         </div>
@@ -139,8 +139,8 @@ const RichTextField: React.FC<RichTextFieldProps> = ({
           onBlur={() => setIsFocused(false)}
           onPaste={handlePaste}
           className={`
-            min-h-[200px] p-6 outline-none text-base leading-relaxed text-neutral-800 dark:text-neutral-200
-            prose dark:prose-invert max-w-none
+            min-h-[200px] p-6 outline-none text-base leading-relaxed text-neutral-900
+            prose max-w-none
             before:content-[attr(data-placeholder)] before:text-neutral-400 before:pointer-events-none before:absolute
             ${!initialValue && !isFocused ? "before:block" : "before:hidden"}
           `}

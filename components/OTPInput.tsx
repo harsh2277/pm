@@ -88,10 +88,10 @@ const OTPInput: React.FC<OTPInputProps> = ({ length = 6, onComplete, disabled = 
             onPaste={handlePaste}
             className={`
               w-16 h-16 text-center text-xl font-bold transition-all duration-200 border-2
-              ${disabled ? "bg-neutral-50 dark:bg-neutral-900 border-neutral-100 dark:border-neutral-800 opacity-50 cursor-not-allowed" :
-                error ? "border-error-500 bg-error-50/10 dark:bg-error-900/5 text-error-600 dark:text-error-400 focus:ring-error-500/10" :
-                digit ? "border-primary-500 bg-primary-50/10 dark:bg-primary-900/5 text-primary-600 dark:text-primary-400" :
-                "border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 hover:border-neutral-400 dark:hover:border-neutral-600 focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10"}
+              ${disabled ? "bg-neutral-50 border-neutral-200 opacity-50 cursor-not-allowed text-neutral-900" :
+                error ? "border-error-500 bg-error-50 text-error-600 focus:ring-error-500/10" :
+                digit ? "border-primary-500 bg-primary-50 text-primary-600" :
+                "border-neutral-200 bg-[var(--background)] text-neutral-900 hover:border-neutral-400 focus:border-primary-500 focus:ring-4 focus:ring-primary-500/10"}
               outline-none
             `}
             style={{ borderRadius: "40px" }}
