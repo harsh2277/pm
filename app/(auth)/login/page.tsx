@@ -2,13 +2,29 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import InputField from "../../../components/InputField";
 import Button from "../../../components/Button";
-import { Eye } from "lucide-react";
+import { Eye, AlertCircle } from "lucide-react";
 
 export default function LoginPage() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+
+    if (email === "user@gmail.com" && password === "user123") {
+      router.push("/dashboard");
+    } else if (email === "admin@gmail.com" && password === "admin123") {
+      router.push("/admin/dashboard");
+    } else {
+      setError("Invalid email or password. Please use the demo credentials.");
+    }
+  };
 
   return (
     <div className="w-full h-full flex items-center justify-center bg-[var(--background)] rounded-[16px] border border-neutral-200">
@@ -26,7 +42,13 @@ export default function LoginPage() {
           </p>
         </div>
 
-        <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+          {error && (
+            <div className="flex items-center gap-2 p-3 rounded-xl bg-error-50 text-error-600 border border-error-100 dark:bg-error-900/10 dark:border-error-900/20 text-xs font-bold transition-all animate-in fade-in slide-in-from-top-1">
+              <AlertCircle className="w-4 h-4" />
+              {error}
+            </div>
+          )}
           <InputField
             label="Email"
             type="email"
